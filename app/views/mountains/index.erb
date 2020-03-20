@@ -1,0 +1,9 @@
+<h1>Mountains</h1>
+<ul>
+<% @mountains.all.each do |mtn| %>
+<li> Name: <%= mountain.name %></li><br>
+<li> Elevation: <%= mountain.elevation %></li><br>
+<li> Summit? </li><br>
+<li> Summit Time: <%= mountain.time %></li>
+<% end %>
+</ul>
