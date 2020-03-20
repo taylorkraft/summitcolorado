@@ -4,24 +4,20 @@ require 'pry'
 
 class Scraper
 
-  attr_accessor :doc 
-
   def initialize(url)
     @doc = Nokogiri::HTML(open(url))
   end
 
+  def scrape_mountains
+    @doc.css('tbody tr').each do |row|
+      name = row.css('span.name').text
+      elevation = row.css('span').text.split("'")[0]
+
+      Mountain.create(name: name, elevation: elevation + "'")
+    end
+  end
 
 end
-
-parks_scraper = Scraper.new('https://www.climb13ers.com/colorado-13ers/14ers/')
-
-binding.pry
-
-# Name
-# parks_scraper.doc.css('tr span.name')[0].text
-
-# Elevation
-# parks_scraper.doc.css('tr span')[0].text
 
 # Summit? Y/N
 

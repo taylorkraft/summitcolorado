@@ -11,4 +11,9 @@ class ApplicationController < Sinatra::Base
     erb :welcome
   end
 
+  get '/mountains' do
+    @mountains = Mountain.all
+    
+    erb :"mountains/index"
+  end
 end
