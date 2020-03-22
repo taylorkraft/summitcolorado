@@ -11,17 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200320195103) do
+ActiveRecord::Schema.define(version: 20200320192817) do
 
   create_table "mountains", force: :cascade do |t|
     t.string "name"
-    t.string "time"
     t.string "elevation"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
+    t.string   "name"
     t.string   "email"
     t.string   "password"
     t.datetime "created_at"
